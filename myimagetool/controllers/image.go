@@ -17,14 +17,15 @@ func (this *UploadController) Get() {
 }
 
 func (this *UploadController) Post() {
-	file, information, err := this.GetFile("file") //返回文件，文件信息头，错误信息
+	file, information, err := this.GetFile("file")
+	defer file.Close()
 	if err != nil {
 		this.Ctx.WriteString("File retrieval failure")
 		return
 	} else {
 		filename := information.Filename
-		picture := strings.Split(filename, ".")            //读取到字符串，并以.符号分隔开
-		layout := strings.ToLower(picture[len(picture)-1]) //把字母字符转换成小写，非字母字符不做出处理,返回此字符串转换为小写形式的副本。
+		picture := strings.Split(filename, ".")
+		layout := strings.ToLower(picture[len(picture)-1])
 
 		if layout != "jpg" && layout != "png" && layout != "gif" {
 			this.Ctx.WriteString("请上传符合格式的图片（png、jpg、gif）")
@@ -38,7 +39,5 @@ func (this *UploadController) Post() {
 			this.Ctx.WriteString("File upload succeed!")
 		}
 	}
-
-	defer file.Close() //关闭上传的文件，否则出现零食文件不清除的情况
 	this.TplName = "upload.html"
 }
