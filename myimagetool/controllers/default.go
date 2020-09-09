@@ -1,8 +1,6 @@
 package controllers
 
 import (
-	"log"
-
 	"github.com/astaxie/beego"
 )
 
@@ -16,12 +14,9 @@ func (c *MainController) Get() {
 	c.TplName = "index.tpl"
 }
 
-func (c *MainController) Post() {
-	f, h, err := c.GetFile("uploadname")
-	if err != nil {
-		log.Fatal("getfile err ", err)
-	}
-	defer f.Close()
-	c.SaveToFile("uploadname", "static/upload/"+h.Filename) // 保存位置在 static/upload, 没有文件夹要先创建
-
+func (c *MainController) Upload() {
+	f, h, _ := c.GetFile("myfile") //获取上传的文件
+	path := "./" + h.Filename
+	f.Close()                    //关闭上传的文件，不然的话会出现临时文件不能清除的情况
+	c.SaveToFile("myfile", path) //存文件
 }
