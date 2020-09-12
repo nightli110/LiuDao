@@ -1,10 +1,10 @@
 package common
 
 type ImageInfo struct {
-	imageid    string
-	time       string
-	srcpath    string
-	dstpath    string
-	procstatus int
-	method     string
+	ImageID    string
+	Time       string
+	Srcpath    string
+	Dstpath    string
+	Procstatus int
+	Method     string
 }
