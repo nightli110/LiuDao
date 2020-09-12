@@ -8,7 +8,7 @@ MyImageTool
 服务之间使用grpc进行通信，使用glog 进行日志记录  
 目前正在开发网站后台
 
-模型可能会用到多个版本的cuda 或者cudnn 目前的想法是使用nvidia docker 来控制多个版本
+模型可能会用到多个版本的cuda 或者cudnn 目前的想法是使用nvidia docker 来控制多个版本  
 拟用k8s来管理docker(k8s 学习中)
 
 其中
