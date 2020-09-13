@@ -10,16 +10,15 @@ import (
 
 func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL) //注册驱动
-	maxIdle := 30
-	maxConn := 30
-	orm.RegisterDataBase("image", "mysql", "root:123456{Ljj}@tcp(localhost:3306)?charset=utf8", maxIdle, maxConn)
-
+	//maxIdle := 30
+	//maxConn := 30
+	orm.RegisterDataBase("default", "mysql", "root:123456{Ljj}@/imagetool?charset=utf8", 30)
 	orm.RegisterModel(new(common.ImageInfo))
 }
 
 func insert(info common.ImageInfo) {
 	o := orm.NewOrm()
-
+	o.Using("imagetool")
 	id, err := o.Insert(&info)
 
 	fmt.Printf("NUM: %d, ERR: %v\n", id, err)
