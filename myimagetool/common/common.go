@@ -1,7 +1,7 @@
 package common
 
-type ImageInfo struct {
-	ImageID    string `orm:"column(uid);pk"`
+type Image struct {
+	ImageID    string `orm:"column(imageid);pk"`
 	Time       string
 	Srcpath    string
 	Dstpath    string

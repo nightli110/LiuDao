@@ -13,10 +13,10 @@ func init() {
 	//maxIdle := 30
 	//maxConn := 30
 	orm.RegisterDataBase("default", "mysql", "root:123456{Ljj}@/imagetool?charset=utf8", 30)
-	orm.RegisterModel(new(common.ImageInfo))
+	orm.RegisterModel(new(common.Image))
 }
 
-func insert(info common.ImageInfo) {
+func insert(info common.Image) {
 	o := orm.NewOrm()
 	o.Using("imagetool")
 	id, err := o.Insert(&info)
@@ -28,13 +28,13 @@ type my struct {
 	my string
 }
 
-func main() {
-	myinfo := new(common.ImageInfo)
+// func main() {
+// 	myinfo := new(common.Image)
 
-	myinfo.ImageID = "t"
-	myinfo.Time = "r"
-	myinfo.Srcpath = "1"
-	myinfo.Dstpath = "2"
-	myinfo.Procstatus = 1
-	insert(*myinfo)
-}
+// 	myinfo.ImageID = "t"
+// 	myinfo.Time = "r"
+// 	myinfo.Srcpath = "1"
+// 	myinfo.Dstpath = "2"
+// 	myinfo.Procstatus = 1
+// 	insert(*myinfo)
+// }
