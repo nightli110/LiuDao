@@ -1,4 +1,4 @@
-package main
+package models
 
 import (
 	"fmt"
@@ -10,8 +10,6 @@ import (
 
 func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL) //注册驱动
-	//maxIdle := 30
-	//maxConn := 30
 	orm.RegisterDataBase("default", "mysql", "root:123456{Ljj}@/imagetool?charset=utf8", 30)
 	orm.RegisterModel(new(common.Image))
 }

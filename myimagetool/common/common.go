@@ -8,3 +8,5 @@ type Image struct {
 	Procstatus int
 	Method     string
 }
+
+var Updateimagedir = "static/upload"

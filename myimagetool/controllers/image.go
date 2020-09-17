@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"myimagetool/common"
 	"path"
 	"strings"
 
@@ -32,10 +33,12 @@ func (this *UploadController) Post() {
 			return //结束整个程序，不执行保存文件
 		}
 
-		err = this.SaveToFile("file", path.Join("static/upload", filename))
+		serverpath := path.Join(common.Updateimagedir, filename)
+		err = this.SaveToFile("file", serverpath)
 		if err != nil {
 			this.Ctx.WriteString("File upload failed！")
 		} else {
+
 			this.Ctx.WriteString("File upload succeed!")
 		}
 	}
