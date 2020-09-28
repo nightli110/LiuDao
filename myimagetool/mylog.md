@@ -6,4 +6,5 @@
 * 1. 图片上传成功
 * 2. 等待队列中
 * 3. 处理完成
-
+2020-9-28 服务间grpc通信往后放v2.0 先用http请求通信
+center 模块开发https://github.com/nightli110/mycenter.git
