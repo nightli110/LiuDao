@@ -12,8 +12,8 @@ inference_app：部署模型进行推理
 
 
 TODO:
-模型可能会用到多个版本的cuda 或者cudnn 目前的想法是使用nvidia docker 来控制多个版本 
-center控制负载均衡，inference_app弹性扩容 
-支持单机部署，及分布式部署
-服务之间使用grpc进行通信，使用glog 进行日志记录  
-拟用k8s来管理docker
+模型可能会用到多个版本的cuda 或者cudnn 目前的想法是使用nvidia docker 来控制多个版本  
+center控制负载均衡，inference_app弹性扩容   
+支持单机部署，及分布式部署  
+服务之间使用grpc进行通信，使用glog 进行日志记录    
+拟用k8s来管理docker  
