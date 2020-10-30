@@ -11,7 +11,7 @@ center：管理 各个模型从内存到显存的加载，及图片消息队列�
 inference_app：部署模型进行推理
 
 
-TODO:
+TODO:  
 模型可能会用到多个版本的cuda 或者cudnn 目前的想法是使用nvidia docker 来控制多个版本  
 center控制负载均衡，inference_app弹性扩容   
 支持单机部署，及分布式部署  
