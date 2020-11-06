@@ -6,6 +6,9 @@ import (
 	"errors"
 	"myimagetool/common"
 	"os"
+
+	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/httplib"
 )
 
 type CenterMsg struct {
@@ -44,5 +47,14 @@ func (msg *CenterMsg) CenterMsgTOJSON() ([]byte, error) {
 }
 
 func (msg *CenterMsg) MsgPost(postjson []byte) ([]byte, error) {
+	CenterHost := beego.AppConfig.String("centerhost")
+	CenterPort := beego.AppConfig.String("centerport")
+	CenterUrl := CenterHost + ":" + CenterPort
+	Req := httplib.Post(CenterUrl)
+	Req.JSONBody(msg)
+
+}
+
+func (msg *CenterMsg) CnterPost(imagepath string) (string, error) {
 
 }
